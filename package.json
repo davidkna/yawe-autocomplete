@@ -1,0 +1,24 @@
+{
+  "name": "yawe-autocomplete",
+  "version": "1.0.0",
+  "description": "Autocomplete for YAWE based on awesomplete",
+  "main": "index.js",
+  "repository": "davidkna/yawe-autocomplete",
+  "author": "Lea Verou, Fork by David Knaack",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davdikna/yawe-autocomplete/issues"
+  },
+  "scripts": {
+    "lint": "eslint --max-warnings 1 index.js",
+    "test": "npm run lint"
+  },
+  "devDependencies": {
+    "eslint": "3.5.0",
+    "eslint-config-airbnb-base": "7.0.1",
+    "eslint-plugin-import": "1.14.0"
+  },
+  "dependencies": {
+    "lodash-es": "4.15.0"
+  }
+}
