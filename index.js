@@ -1,4 +1,4 @@
-import regExpEscape from 'lodash-es/escapeRegExp'
+import regexEscape from 'lodash-es/escapeRegExp'
 
 /**
  * Simple, lightweight, usable local autocomplete library for modern browsers
@@ -11,7 +11,7 @@ function item(text, input) {
   const trimmedInput = input.trim()
   const html = trimmedInput === '' ?
     text :
-    text.replace(RegExp(regExpEscape(trimmedInput), 'gi'), '<mark>$&</mark>')
+    text.replace(RegExp(regexEscape(trimmedInput), 'gi'), '<mark>$&</mark>')
   return html
 }
 
