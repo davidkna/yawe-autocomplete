@@ -1,6 +1,4 @@
-import highlight from 'autosuggest-highlight'
-
-const { match, parse } = highlight
+import { match, parse } from 'autosuggest-highlight'
 
 /**
  * Simple, lightweight, usable local autocomplete library for modern browsers
