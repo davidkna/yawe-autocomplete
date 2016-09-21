@@ -20,7 +20,7 @@ function item(text, input) {
       div.appendChild(mark)
     } else {
       const t = document.createTextNode(text)
-      div.appenChild(t)
+      div.appendChild(t)
     }
   })
 }
