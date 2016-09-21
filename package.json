@@ -19,6 +19,6 @@
     "eslint-plugin-import": "1.14.0"
   },
   "dependencies": {
-    "lodash-es": "4.15.0"
+    "autosuggest-highlight": "2.1.1"
   }
 }

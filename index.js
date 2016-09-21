@@ -1,4 +1,4 @@
-import regexEscape from 'lodash-es/escapeRegExp'
+import { match, parse } from 'autosuggest-highlight'
 
 /**
  * Simple, lightweight, usable local autocomplete library for modern browsers
@@ -8,11 +8,19 @@ import regexEscape from 'lodash-es/escapeRegExp'
  */
 
 function item(text, input) {
-  const trimmedInput = input.trim()
-  const html = trimmedInput === '' ?
-    text :
-    text.replace(RegExp(regexEscape(trimmedInput), 'gi'), '<mark>$&</mark>')
-  return html
+  const matches = match(text, input)
+  const parts = parse(text, matches)
+  const div = document.createElement('div')
+  parts.forEach((i) => {
+    if (i.highlight) {
+      const mark = document.createElement('mark')
+      mark.textContent = i.text
+      div.appendChild(mark)
+    } else {
+      const t = document.createTextNode(text)
+      div.appenChild(t)
+    }
+  })
 }
 
 class YAWEComplete {
@@ -139,15 +147,12 @@ class YAWEComplete {
     }
     this.list.forEach((text, i) => {
       const itemHTML = item(text, this.input.value)
-      if (children[i]) {
-        children[i].innerHTML = itemHTML
-        children[i].setAttribute('aria-selected', 'false')
-        return
-      }
-      const li = document.createElement('li')
+      const li = children[i] || document.createElement('li')
       li.innerHTML = itemHTML
       li.setAttribute('aria-selected', 'false')
-      this.ul.appendChild(li)
+      if (children[i]) {
+        this.ul.appendChild(li)
+      }
     })
     this.open()
   }
