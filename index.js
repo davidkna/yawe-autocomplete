@@ -23,6 +23,7 @@ function item(text, input) {
       div.appendChild(t)
     }
   })
+  return div.innerHTML
 }
 
 class YAWEComplete {
