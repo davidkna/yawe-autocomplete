@@ -148,7 +148,7 @@ class YAWEComplete {
     }
     this.list.forEach((text, i) => {
       const li = children[i] || document.createElement('li')
-      item(li, text, i)
+      item(li, text, this.input.value)
       li.setAttribute('aria-selected', 'false')
       if (children[i]) {
         this.ul.appendChild(li)
