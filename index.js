@@ -18,7 +18,7 @@ function item(li, text, input) {
       mark.textContent = i.text
       li.appendChild(mark)
     } else {
-      const t = document.createTextNode(text)
+      const t = document.createTextNode(i.text)
       li.appendChild(t)
     }
   })
