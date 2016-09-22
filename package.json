@@ -1,6 +1,6 @@
 {
   "name": "yawe-autocomplete",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Autocomplete for YAWE based on awesomplete",
   "main": "index.js",
   "repository": "davidkna/yawe-autocomplete",
