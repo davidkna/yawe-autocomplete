@@ -147,12 +147,14 @@ class YAWEComplete {
       }
     }
     this.list.forEach((text, i) => {
-      const li = children[i] || document.createElement('li')
-      item(li, text, this.input.value)
-      li.setAttribute('aria-selected', 'false')
-      if (children[i]) {
+      if (!children[i]) {
+        const li = document.createElement('li')
         this.ul.appendChild(li)
       }
+
+      const li = children[i]
+      item(li, text, this.input.value)
+      li.setAttribute('aria-selected', 'false')
     })
     this.open()
   }
