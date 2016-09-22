@@ -9,21 +9,19 @@ const { match, parse } = highlight
  * MIT license
  */
 
-function item(text, input) {
+function item(li, text, input) {
   const matches = match(text, input)
   const parts = parse(text, matches)
-  const div = document.createElement('div')
   parts.forEach((i) => {
     if (i.highlight) {
       const mark = document.createElement('mark')
       mark.textContent = i.text
-      div.appendChild(mark)
+      li.appendChild(mark)
     } else {
       const t = document.createTextNode(text)
-      div.appendChild(t)
+      li.appendChild(t)
     }
   })
-  return div.innerHTML
 }
 
 class YAWEComplete {
@@ -149,9 +147,8 @@ class YAWEComplete {
       }
     }
     this.list.forEach((text, i) => {
-      const itemHTML = item(text, this.input.value)
       const li = children[i] || document.createElement('li')
-      li.innerHTML = itemHTML
+      item(li, text, i)
       li.setAttribute('aria-selected', 'false')
       if (children[i]) {
         this.ul.appendChild(li)
