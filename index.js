@@ -1,6 +1,4 @@
-import highlight from 'autosuggest-highlight'
-
-const { match, parse } = highlight
+import item from './highlight'
 
 /**
  * Simple, lightweight, usable local autocomplete library for modern browsers
@@ -8,21 +6,6 @@ const { match, parse } = highlight
  * @author David Knaack (fork)
  * MIT license
  */
-
-function item(li, text, input) {
-  const matches = match(text, input)
-  const parts = parse(text, matches)
-  parts.forEach((i) => {
-    if (i.highlight) {
-      const mark = document.createElement('mark')
-      mark.textContent = i.text
-      li.appendChild(mark)
-    } else {
-      const t = document.createTextNode(i.text)
-      li.appendChild(t)
-    }
-  })
-}
 
 class YAWEComplete {
   constructor(input, getCompletion) {
