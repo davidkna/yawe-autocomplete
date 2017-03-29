@@ -8,10 +8,8 @@
 import deburr from 'lodash-es/deburr'
 import escapeRegExp from 'lodash-es/escapeRegExp'
 import flatten from 'lodash-es/flatten'
-import highlight from 'autosuggest-highlight'
+import parse from 'autosuggest-highlight/parse'
 import words from 'lodash-es/words'
-
-const { parse } = highlight
 
 function merge(m, text) {
   if (m.length === 1) {
@@ -33,7 +31,7 @@ function merge(m, text) {
 
 function match(t, iwords) {
   const text = deburr(t)
-  return merge(iwords.map(word => {
+  return merge(iwords.map((word) => {
     const regex = new RegExp(escapeRegExp(deburr(word)), 'gi')
     const results = []
     let rmatch
