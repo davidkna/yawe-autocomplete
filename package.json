@@ -10,7 +10,7 @@
     "url": "https://github.com/davdikna/yawe-autocomplete/issues"
   },
   "scripts": {
-    "lint": "eslint --max-warnings 1 index.js",
+    "lint": "eslint --max-warnings 1 *.js",
     "test": "npm run lint"
   },
   "devDependencies": {
