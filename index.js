@@ -24,7 +24,7 @@ class YAWEComplete {
     // Bind events
     this.input.addEventListener('input', this.refresh.bind(this))
     this.input.addEventListener('blur', this.close.bind(this))
-    this.input.addEventListener('keydown', evt => {
+    this.input.addEventListener('keydown', (evt) => {
       const c = evt.key
       // If the dropdown `ul` is in view, then act on keydown for the following keys:
       // Enter / Tab / Esc / Up / Down
@@ -47,7 +47,7 @@ class YAWEComplete {
 
     this.input.form.addEventListener('submit', this.close.bind(this))
 
-    this.ul.addEventListener('click', evt => {
+    this.ul.addEventListener('click', (evt) => {
       let li = evt.target
 
       if (li !== this) {
@@ -105,7 +105,7 @@ class YAWEComplete {
     const typedValue = this.typedValue = this.input.value
     if (this.input.value.length !== 0) {
       this.getCompletion(this.input.value)
-        .then(newList => {
+        .then((newList) => {
           if (typedValue === this.typedValue) {
             this.list = newList
             this.showCompletions()
