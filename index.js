@@ -102,8 +102,9 @@ class YAWEComplete {
 
   refresh() {
     this.index = -1
-    const typedValue = this.typedValue = this.input.value
+    this.typedValue = this.input.value
     if (this.input.value.length !== 0) {
+      const typedValue = this.typedValue
       this.getCompletion(this.input.value)
         .then((newList) => {
           if (typedValue === this.typedValue) {
