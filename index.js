@@ -51,7 +51,7 @@ class YAWEComplete {
       let li = evt.target
 
       if (li !== this) {
-        while (li && !/li/i.test(li.nodeName)) {
+        while (li && li.nodeName.toLowerCase() === 'li') {
           li = li.parentNode
         }
         if (!li) {
