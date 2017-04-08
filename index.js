@@ -137,7 +137,7 @@ class YAWEComplete {
       }
 
       const li = children[i]
-      li.innerHTML = ''
+      li.textContent = ''
       item(li, text, this.input.value)
       li.setAttribute('aria-selected', 'false')
     })
