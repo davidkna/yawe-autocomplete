@@ -22,6 +22,9 @@ function merge(matches, text) {
     }
     return results;
 }
+function compare(a, b) {
+    return a[0] - b[0];
+}
 function match(t, iwords) {
     const text = deburr(t);
     const highlightInfo = iwords.map((word) => {
@@ -40,7 +43,7 @@ function match(t, iwords) {
     if (iwords.length === 1) {
         return highlightInfo[0];
     }
-    return merge(flatten(highlightInfo).sort(([a], [b]) => a - b), text);
+    return merge(flatten(highlightInfo).sort(compare), text);
 }
 function highlight(text, input) {
     const matches = match(text, words(input, undefined, undefined));

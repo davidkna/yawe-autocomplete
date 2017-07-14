@@ -8,14 +8,14 @@ import highlight from './highlight'
  */
 
 class YAWEComplete {
-  input: HTMLInputElement
-  getCompletion: (inputValue: string) => Promise<string[]>
-  index: number
-  typedValue: string
-  container: HTMLElement
-  ul: HTMLUListElement
-  list: string[]
-  constructor(input, getCompletion) {
+  readonly input: HTMLInputElement
+  readonly getCompletion: (inputValue: string) => Promise<string[]>
+  protected index: number
+  protected typedValue: string
+  protected container: HTMLElement
+  protected ul: HTMLUListElement
+  protected list: string[]
+  constructor(input: HTMLInputElement, getCompletion: (inputValue: string) => Promise<string[]>) {
     // Setup
     this.input = input
     this.getCompletion = getCompletion
@@ -25,7 +25,7 @@ class YAWEComplete {
     this.typedValue = this.input.value
 
     // Create necessary elements
-    this.container = this.input.parentElement
+    this.container = <HTMLElement>this.input.parentElement
     this.ul = <HTMLUListElement>this.input.nextElementSibling
 
     // Bind events
@@ -59,14 +59,14 @@ class YAWEComplete {
 
       if (li !== this.ul) {
         while (li && li.nodeName.toLowerCase() === 'li') {
-          li = li.parentNode
+          li = <Node>li.parentNode
         }
         if (!li) {
           return
         }
 
         evt.preventDefault()
-        this.input.value = (li as HTMLUListElement).textContent
+        this.input.value = <string>(li as HTMLUListElement).textContent
         this.close()
       }
     })
@@ -91,7 +91,7 @@ class YAWEComplete {
     this.goto(this.index !== -1 ? this.index - 1 : count - 1)
   }
 
-  goto(i) {
+  goto(i: number) {
     const lis = this.ul.children
     if (this.index !== -1) {
       lis[this.index].setAttribute('aria-selected', 'false')
@@ -100,7 +100,7 @@ class YAWEComplete {
     if (lis.length > 0) {
       if (i > -1) {
         lis[i].setAttribute('aria-selected', 'true')
-        this.input.value = lis[i].textContent
+        this.input.value = <string>lis[i].textContent
       } else {
         this.input.value = this.typedValue
       }

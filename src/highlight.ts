@@ -30,6 +30,10 @@ function merge(matches: [number, number][], text: string): [number, number][] {
   return results
 }
 
+function compare(a: [number, number], b: [number, number]) {
+  return a[0] - b[0]
+}
+
 function match(t: string, iwords: string[]): [number, number][] {
   const text = deburr(t)
   const highlightInfo = iwords.map((word) => {
@@ -50,7 +54,7 @@ function match(t: string, iwords: string[]): [number, number][] {
   }
 
   return merge(
-    flatten(highlightInfo).sort(([a], [b]) => a - b),
+    flatten(highlightInfo).sort(compare),
     text,
   )
 }
