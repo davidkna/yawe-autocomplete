@@ -145,7 +145,7 @@ class YAWEComplete {
 
       const li = children[i]
       li.textContent = ''
-      highlight(text, this.input.value)
+      li.appendChild(highlight(text, this.input.value))
       li.setAttribute('aria-selected', 'false')
     })
     this.open()
