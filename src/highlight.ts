@@ -8,8 +8,9 @@
 import deburr from 'lodash-es/deburr'
 import escapeRegExp from 'lodash-es/escapeRegExp'
 import flatten from 'lodash-es/flatten'
-import parse from 'autosuggest-highlight/parse'
 import words from 'lodash-es/words'
+
+const parse = require('autosuggest-highlight/parse')
 
 interface highlightFragment {
   text: string
