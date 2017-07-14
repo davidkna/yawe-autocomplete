@@ -91,7 +91,7 @@ class YAWEComplete {
     this.goto(this.index !== -1 ? this.index - 1 : count - 1)
   }
 
-  goto(i: number) {
+  protected goto(i: number) {
     const lis = this.ul.children
     if (this.index !== -1) {
       lis[this.index].setAttribute('aria-selected', 'false')
