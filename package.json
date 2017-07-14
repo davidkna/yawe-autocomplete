@@ -1,6 +1,6 @@
 {
   "name": "yawe-autocomplete",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "Autocomplete for YAWE based on awesomplete",
   "main": "./dist/index.js",
   "types": "./dist/main.d.ts",
