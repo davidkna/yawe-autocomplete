@@ -3,11 +3,11 @@
  * @author David Knaack
  * MIT license
  */
-const deburr = require('lodash-es/deburr');
-const escapeRegExp = require('lodash-es/escapeRegExp');
-const flatten = require('lodash-es/flatten');
-const parse = require('autosuggest-highlight/parse');
-const words = require('lodash-es/words');
+import deburr from 'lodash-es/deburr';
+import escapeRegExp from 'lodash-es/escapeRegExp';
+import flatten from 'lodash-es/flatten';
+import parse from 'autosuggest-highlight/parse';
+import words from 'lodash-es/words';
 function merge(matches, text) {
     const results = [matches[0]];
     for (let i = 1; i < matches.length; i += 1) {
@@ -46,7 +46,7 @@ function match(t, iwords) {
     return merge(flatten(highlightInfo).sort(compare), text);
 }
 function highlight(text, input) {
-    const matches = match(text, words(input, undefined, undefined));
+    const matches = match(text, words(input));
     const parts = parse(text, matches);
     const li = document.createDocumentFragment();
     parts.forEach((i) => {

@@ -5,11 +5,11 @@
  */
 
 
-const deburr = require('lodash-es/deburr')
-const escapeRegExp = require('lodash-es/escapeRegExp')
-const flatten = require('lodash-es/flatten')
-const parse = require('autosuggest-highlight/parse')
-const words = require('lodash-es/words')
+import deburr from 'lodash-es/deburr'
+import escapeRegExp from 'lodash-es/escapeRegExp'
+import flatten from 'lodash-es/flatten'
+import parse from 'autosuggest-highlight/parse'
+import words from 'lodash-es/words'
 
 interface highlightFragment {
   text: string
@@ -59,7 +59,7 @@ function match(t: string, iwords: string[]): [number, number][] {
   )
 }
 function highlight(text: string, input: string): DocumentFragment {
-  const matches = match(text, words(input, undefined, undefined))
+  const matches = match(text, words(input))
   const parts: highlightFragment[] = parse(text, matches)
   const li = document.createDocumentFragment()
   parts.forEach((i) => {
