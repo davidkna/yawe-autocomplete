@@ -1,5 +1,5 @@
 /**
- * Hightlight stuff
+ * Hightlights stuff
  * @author David Knaack
  * MIT license
  */
