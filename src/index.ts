@@ -1,3 +1,4 @@
+require('shim-keyboard-event-key')
 import highlight from './highlight'
 
 /**

@@ -1,3 +1,4 @@
+require('shim-keyboard-event-key');
 import highlight from './highlight';
 /**
  * Simple, lightweight, usable local autocomplete library for modern browsers

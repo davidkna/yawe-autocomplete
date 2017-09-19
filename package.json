@@ -23,7 +23,8 @@
     "typescript": "^2.4.1"
   },
   "dependencies": {
-    "autosuggest-highlight": "3.1.0",
-    "lodash-es": "4.17.4"
+    "autosuggest-highlight": "^3.1.0",
+    "lodash-es": "^4.17.4",
+    "shim-keyboard-event-key": "1.0.0"
   }
 }
