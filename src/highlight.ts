@@ -4,8 +4,6 @@
  * MIT license
  */
 
-
-import deburr from 'lodash-es/deburr'
 import escapeRegExp from 'lodash-es/escapeRegExp'
 import flatten from 'lodash-es/flatten'
 import words from 'lodash-es/words'
@@ -15,6 +13,10 @@ const parse = require('autosuggest-highlight/parse')
 interface highlightFragment {
   text: string
   highlight: boolean
+}
+
+function deburr(str: string): string {
+  return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
 }
 
 function merge(matches: [number, number][], text: string): [number, number][] {

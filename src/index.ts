@@ -53,7 +53,8 @@ class YAWEComplete {
       }
     })
 
-    this.input.form.addEventListener('submit', this.close.bind(this))
+    const form = <HTMLFormElement> this.input.form
+    form.addEventListener('submit', this.close.bind(this))
 
     this.ul.addEventListener('click', (evt) => {
       let li = <Node>evt.target

@@ -3,11 +3,13 @@
  * @author David Knaack
  * MIT license
  */
-import deburr from 'lodash-es/deburr';
 import escapeRegExp from 'lodash-es/escapeRegExp';
 import flatten from 'lodash-es/flatten';
 import words from 'lodash-es/words';
 const parse = require('autosuggest-highlight/parse');
+function deburr(str) {
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
 function merge(matches, text) {
     const results = [matches[0]];
     for (let i = 1; i < matches.length; i += 1) {

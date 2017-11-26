@@ -42,7 +42,8 @@ class YAWEComplete {
                 }
             }
         });
-        this.input.form.addEventListener('submit', this.close.bind(this));
+        const form = this.input.form;
+        form.addEventListener('submit', this.close.bind(this));
         this.ul.addEventListener('click', (evt) => {
             let li = evt.target;
             if (li !== this.ul) {
