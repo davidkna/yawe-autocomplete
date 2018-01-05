@@ -4,7 +4,7 @@
  * MIT license
  */
 
-import deburr from 'lodash-es/deburr';
+import deburr from 'lodash-es/deburr'
 import escapeRegExp from 'lodash-es/escapeRegExp'
 import flatten from 'lodash-es/flatten'
 import words from 'lodash-es/words'
