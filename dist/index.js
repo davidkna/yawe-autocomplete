@@ -47,7 +47,7 @@ class YAWEComplete {
         this.ul.addEventListener('click', (evt) => {
             let li = evt.target;
             if (li !== this.ul) {
-                while (li && li.nodeName.toLowerCase() === 'li') {
+                while (li && li.nodeName.toLowerCase() !== 'li') {
                     li = li.parentNode;
                 }
                 if (!li) {
