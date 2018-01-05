@@ -60,7 +60,7 @@ class YAWEComplete {
       let li = <Node>evt.target
 
       if (li !== this.ul) {
-        while (li && li.nodeName.toLowerCase() === 'li') {
+        while (li && li.nodeName.toLowerCase() !== 'li') {
           li = <Node>li.parentNode
         }
         if (!li) {
