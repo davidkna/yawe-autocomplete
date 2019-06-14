@@ -31,7 +31,7 @@ function match(t, iwords) {
         const regex = new RegExp(escapeRegExp(deburr(word)), 'gi');
         const results = [];
         let rmatch;
-        while (rmatch = regex.exec(text)) {
+        while (rmatch = regex.exec(text)) { // eslint-disable-line no-cond-assign
             results.push([
                 rmatch.index,
                 regex.lastIndex,

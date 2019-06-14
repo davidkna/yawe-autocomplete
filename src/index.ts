@@ -11,18 +11,18 @@ import highlight from './highlight'
 class YAWEComplete {
   readonly input: HTMLInputElement
   readonly getCompletion: (inputValue: string) => Promise<string[]>
-  protected index: number
   protected typedValue: string
   protected container: HTMLElement
   protected ul: HTMLUListElement
-  protected list: string[]
+
+  protected index: number = -1
+  protected list: string[] = []
   constructor(input: HTMLInputElement, getCompletion: (inputValue: string) => Promise<string[]>) {
     // Setup
     this.input = input
     this.getCompletion = getCompletion
     this.input.setAttribute('aria-autocomplete', 'list')
 
-    this.index = -1
     this.typedValue = this.input.value
 
     // Create necessary elements

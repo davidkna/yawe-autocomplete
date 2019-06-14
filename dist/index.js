@@ -8,11 +8,12 @@ import highlight from './highlight';
  */
 class YAWEComplete {
     constructor(input, getCompletion) {
+        this.index = -1;
+        this.list = [];
         // Setup
         this.input = input;
         this.getCompletion = getCompletion;
         this.input.setAttribute('aria-autocomplete', 'list');
-        this.index = -1;
         this.typedValue = this.input.value;
         // Create necessary elements
         this.container = this.input.parentElement;

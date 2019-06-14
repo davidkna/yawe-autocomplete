@@ -7,10 +7,10 @@
 declare class YAWEComplete {
     readonly input: HTMLInputElement;
     readonly getCompletion: (inputValue: string) => Promise<string[]>;
-    protected index: number;
     protected typedValue: string;
     protected container: HTMLElement;
     protected ul: HTMLUListElement;
+    protected index: number;
     protected list: string[];
     constructor(input: HTMLInputElement, getCompletion: (inputValue: string) => Promise<string[]>);
     close(): void;

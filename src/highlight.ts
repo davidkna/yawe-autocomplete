@@ -11,7 +11,7 @@ import words from 'lodash-es/words'
 
 const parse = require('autosuggest-highlight/parse')
 
-interface highlightFragment {
+interface HighlightFragment {
   text: string
   highlight: boolean
 }
@@ -60,7 +60,7 @@ function match(t: string, iwords: string[]): [number, number][] {
 }
 function highlight(text: string, input: string): DocumentFragment {
   const matches = match(text, words(input))
-  const parts: highlightFragment[] = parse(text, matches)
+  const parts: HighlightFragment[] = parse(text, matches)
   const li = document.createDocumentFragment()
   parts.forEach((i) => {
     if (i.highlight) {
